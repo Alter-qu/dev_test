@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<body>
+<div id="app">
+    <form>
+        <input type="text" id="name">
+        <input type="password" id="pwd">
+        <button>登录</button>
+    </form>
+	
+</div>
+
+</body>
+</html>
+<script type = "text/javascript">
+   $(document).ready(function(){
+	
+     $("button").click(function(){
+      var name=$("#name").val();
+	  var pwd=$("#pwd").val();
+	  document.write(pwd+name); 
+$.ajax({
+   type: "POST",
+   url: "http://www.rbac.com/test/test/login",
+   data: {
+	   "name":name,
+	   "pwd":pwd
+   },
+   success: function(msg){
+console.log(msg);
+	// if(msg.code==200){
+	// 	window.location.href="show"
+	// }else{
+	// 	console.log(msg)
+	// }
+	
+   }
+});
+     });
+   });
+    
+</script>
